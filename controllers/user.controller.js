@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const User = require("../modules/User");
 const jwt = require("jsonwebtoken");
 // const Follow = require("../modules/Follow");
