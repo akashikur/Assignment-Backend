@@ -171,6 +171,7 @@ const updateLanguage = async (req, res) => {
     });
   }
 };
+
 const getAllUsers = async (req, res) => {
   try {
     const userData = await User.find();
@@ -186,6 +187,7 @@ const getAllUsers = async (req, res) => {
     });
   }
 };
+
 const ClearScore = async (req, res) => {
   const userId = req.locals.userId;
   const { language } = req.body;

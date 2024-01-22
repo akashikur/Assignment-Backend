@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// used to connect the mongoDb
 mongoose
   .connect(process.env.MONGODB_URL)
   .then((res) => {

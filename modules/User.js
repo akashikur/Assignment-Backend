@@ -23,6 +23,7 @@ const UserSchema = new Schema({
   ],
   progress: {
     proficiencyLevels: {
+      //get the initial progress accoding to the language user prefered
       type: Object,
       default: function () {
         const proficiencyLevels = {};
@@ -46,7 +47,7 @@ const UserSchema = new Schema({
           required: true,
         },
         status: {
-          type: Boolean,
+          type: String,
           required: true,
         },
       },
