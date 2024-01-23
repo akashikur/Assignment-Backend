@@ -23,16 +23,20 @@ const registerUser = async (req, res) => {
   }
   //checking if the user is already exists
   try {
-    const userExists = await User.find({
-      $or: [{ email: req.body.email, username: req.body.username }],
-    }); //or is query for the data
-    if (userExists.length != 0) {
+    // const userExists = await User.find({
+    //   $or: [{ email: req.body.email, username: req.body.username }],
+    // }); //or is query for the data
+    const existUserName = await User.find({ username: req.body.username });
+    const existUserEmail = await User.find({ email: req.body.email });
+
+    if (existUserName.length != 0 || existUserEmail.length != 0) {
       return res.status(400).send({
         status: 400,
         message: "Username/Email already exists",
       });
     }
   } catch (error) {
+    console.log(error);
     return res.status(400).send({
       status: 400,
       message: "Error while checking username and email exists",
@@ -59,7 +63,6 @@ const registerUser = async (req, res) => {
     return res.status(400).send({
       status: 400,
       message: "Error while saving user to DB",
-      data: err,
     });
   }
 };
