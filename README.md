@@ -1,0 +1,2 @@
+- To install node_modules = npm install
+- to run the server = nodemon index.js
